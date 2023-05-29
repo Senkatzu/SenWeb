@@ -1,0 +1,94 @@
+/* global styles */
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* individual styles for each page */
+#me1 {
+  background-color: #f1f1f1;
+}
+
+#me2 {
+  background-color: #e0e0e0;
+}
+
+#me3 {
+  background-color: #d1d1d1;
+}
+
+#me4 {
+  background-color: #c2c2c2;
+}
+
+#me5 {
+  background-color: #b3b3b3;
+}
+
+/* styles for images and arrows */
+img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.left-arrow {
+  position: absolute;
+  margin-top: 100px;
+  left: 0;
+  width: 10%;
+  cursor: pointer;
+}
+
+.right-arrow {
+  position: absolute;
+  margin-top: 100px;
+  right: 0;
+  margin-left: 90%;
+  width: 10%;
+  cursor: pointer;
+}
+
+.image-container {
+  text-align: center;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Quotations</title>
+  <style>
+    body {
+      background: rgb(252,176,69);
+	  background: radial-gradient(circle, rgba(252,176,69,1) 0%, rgba(131,58,180,1) 61%)
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px 0;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      position: absolute;
+      top: 50%;
+      left: -100px;
+      width: 400px;
+      margin-top: -160px;
+      background-color: #ff9800;
+      color: white;
+    }
+
+    .quotation {
+      height: 200px;
+      width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      outline: 2px solid #555;
+      border: 1px solid #999;
+      border-radius: 5px;
+      background: rgb(238,174,202);
+	  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+      position: relative;
+	  text-align: center;
+    }
+
+    .quotation::first-letter {
+      font-size: 30px;
+      font-weight: bold;
+      color: #ff9800;
+    }
+
+    .quotation span {
+      font-style: italic;
+    }
+	
+	.arrow-link {
+      position: fixed;
+      bottom: 20px;
+      font-size: 24px;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .arrow-link:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+	  transform: scale(1.1);
+    }
+
+    .arrow-up {
+      right: 20px;
+    }
+
+    .arrow-down {
+      right: 60px;
+	  margin-right: 10px;
+    }
+	.centered-link {
+	  display: flex;
+	  justify-content: center;
+	  margin-bottom: 20px;
+	  color: yellow;
+	}
+  </style>
+</head>
+<body>
+  <h1>Points to Ponder</h1>
+  
+  <a href="#top" class="arrow-link arrow-up">&#9650;</a>
+
+  <a href="#bottom" class="arrow-link arrow-down">&#9660;</a>
+  
+  <div class="centered-link">
+  <a href="meme.html" target="_top">Home</a>
+  </div> 
+  
+  <div class="quotation">
+    <p>A man is but the product of his thoughts; what he thinks, he becomes.</p>
+    <span>— Mahatma Gandhi —</span>
+  </div>
+  <div class="quotation">
+    <p>Anyone who has never made a mistake has never tried anything new.</p>
+    <span>— Albert Einstein —</span>
+  </div>
+  <div class="quotation">
+    <p>Be a student as long as you still have something to learn, and this will mean all your life.</p>
+    <span>— Henry L. Doherty —</span>
+  </div>
+  <div class="quotation">
+    <p>For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life.</p>
+    <span>— John 3:16 —</span>
+  </div>
+  <div class="quotation">
+    <p>Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God.</p>
+    <span>— Philippians 4:6 —</span>
+  </div>
+  <div class="quotation">
+    <p>The greatest glory in living lies not in never falling, but in rising every time we fall.</p>
+    <span>— Nelson Mandela —</span>
+  </div>
+  <div class="quotation">
+    <p>The only way to do great work is to love what you do.</p>
+    <span>— Steve Jobs —</span>
+  </div>
+  <div class="quotation">
+    <p>The future starts today, not tomorrow.</p>
+    <span>— Pope John Paul II —</span>
+  </div>
+  <div class="quotation">
+    <p>Imagination is more important than knowledge.</p>
+    <span>— Albert Einstein —</span>
+  </div>
+  <div class="quotation">
+    <p>Peace begins with a smile. Every time you smile at someone, it is an action of love, a gift to that person, a beautiful thing.</p>
+    <span>— Mother Teresa —</span>
+  </div>
+  <div class="quotation">
+    <p>The journey of a thousand miles begins with a single step.</p>
+    <span>— Lao Tzu —</span>
+  </div>
+  <div class="quotation">
+    <p>Your time is limited, don't waste it living someone else's life.</p>
+    <span>— Steve Jobs —</span>
+  </div>
+  <div class="quotation">
+    <p>"Success consists of going from failure to failure without loss of enthusiasm."</p>
+    <span>— Winston Churchill —</span>
+  </div>
+  <div class="quotation">
+    <p>The bad news is time flies. The good news is you're the pilot.</p>
+    <span>— Michael Altshuler —</span>
+  </div>
+  <div class="quotation">
+    <p>The best way to predict your future is to create it.</p>
+    <span>— Abraham Lincoln —</span>
+  </div>
+  <div class="quotation">
+    <p>Education is the most powerful weapon, which you can use to change the world.</p>
+    <span>— Nelson Mandela —</span>
+  </div>
+  <div class="quotation">
+    <p>The art of being wise is the art of knowing what to overlook.</p>
+    <span>— William James —</span>
+  </div>
+  <div class="quotation">
+    <p>Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.</p>
+    <span>— Thomas A. Edison —</span>
+  </div>
+  <div class="quotation">
+    <p>The important thing is not to stop questioning. Curiosity has its own reason for existing.</p>
+    <span>— Albert Einstein —</span>
+  </div>
+  <div class="quotation">
+    <p>Knowing is not enough; we must apply. Willing is not enough; we must do.</p>
+    <span>— Johann Wolfgang von Goethe —</span>
+  </div>
+  
+  <div id="bottom"></div>
+  
+</body>
+</html>

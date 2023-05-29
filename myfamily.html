@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Family</title>
+	<style>
+	
+		
+	
+		body {
+			background-color: #f0f0f0;
+			background-image: url(background-image.jpg);
+			background-size: cover;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			color: #333;
+			line-height: 1.5;
+			margin: 0;
+			padding: 0;
+			background: rgb(238,174,202);
+			background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+		}
+		
+		h1 {
+			font-size: 32px;
+			font-style: italic;
+			text-align: center;
+			margin-top: 50px;
+		}
+		
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-items: center;
+			margin: 50px auto;
+			max-width: 1000px;
+		}
+		
+		.photo {
+			position: relative;
+			display: inline-block;
+			margin: 20px;
+			padding: 10px;
+			border: 1px solid #ccc;
+			transform: rotate(-5deg);
+			transition: transform 0.3s ease-in-out;
+		}
+		
+		.photo:hover {
+			transform: rotate(0deg);
+		}
+		
+		.photo img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+		
+		.caption {
+			position: absolute;
+			bottom: -20px;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: rgba(255, 255, 255, 0.8);
+			padding: 10px;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			transition: bottom 0.3s ease-in-out;
+		}
+		
+		.photo:hover .caption {
+			bottom: 0;
+		}
+		
+		.caption p {
+			margin: 0;
+			font-size: 14px;
+			font-style: italic;
+			color: #333;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>My Family</h1>
+	<div class="container">
+		<div class="photo">
+			<img src="motha.jpg" alt="My Mother">
+			<div class="caption">
+				<p>My Mother</p>
+			</div>
+		</div>
+		<div class="photo">
+			<img src="fatha.jpg" alt="My Father">
+			<div class="caption">
+				<p>My Father</p>
+			</div>
+		</div>
+		</div>
+		<div class="photo">
+			<img src="brotha.jpeg" alt="My Brother">
+			<div class="caption">
+				<p>My Brother</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
