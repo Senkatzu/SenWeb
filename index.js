@@ -60,6 +60,29 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("email").value = "";
     document.getElementById("phone").value = "";
   });
+  
+  function generateTextFileContent() {
+  var tableRows = document.querySelectorAll("#friendTable tbody tr");
+  var content = "";
+
+  // Add table header row
+  var headerCells = document.querySelectorAll("#friendTable thead th");
+  for (var i = 0; i < headerCells.length; i++) {
+    content += headerCells[i].textContent + "\t"; // Separate values with tabs
+  }
+  content += "\n"; // Add new line after the header row
+
+  // Loop through table rows and extract values
+  for (var i = 0; i < tableRows.length; i++) {
+    var cells = tableRows[i].querySelectorAll("td");
+    for (var j = 0; j < cells.length; j++) {
+      content += cells[j].textContent + "\t"; // Separate values with tabs
+    }
+    content += "\n"; // Add new line after each row
+  }
+
+  return content;
+}
 
   document.getElementById("submitTableButton").addEventListener("click", function () {
     var tableContent = generateTextFileContent();
