@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-.container {
-  text-align: center;
-}
-</style>
-<title>Friend Registry</title>
-<script src="index.js"></script>
+    .container {
+      text-align: center;
+    }
+
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+  <title>Friend Registry</title>
 </head>
 <body>
   <div class="container">
     <h1>Friend Registry</h1>
-    <form>
+    <form action="https://script.google.com/macros/s/AKfycbzlVZMdP_wTzQsEvqpgUR_brkFsUyWKmeKB9sALzcHL5xpmBimf9L5h_qxdc9hu1ph4/exec" method="POST" target="submitFrame">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required><br>
       <label for="age">Age:</label>
@@ -38,23 +49,7 @@ body {
       <input type="submit" value="Submit Information">
     </form>
 
-    <h2>Registered Friends</h2>
-    <table id="friendTable">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Gender</th>
-          <th>Email</th>
-          <th>Phone Number</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Friend information will be dynamically added here -->
-      </tbody>
-    </table>
-
-    <button id="submitTableButton">Submit Table</button>
+    <iframe name="submitFrame" style="display: none;"></iframe>
   </div>
 </body>
-</html> 
+</html>
