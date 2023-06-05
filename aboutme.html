@@ -7,22 +7,21 @@
             margin: 0;
         }
         .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             background-color: #333;
             overflow: hidden;
             display: flex;
             justify-content: center;
-            position: fixed; /* Fixed position to keep it at the top */
-            width: 100%; /* Full width */
-            z-index: 2; /* Ensure it's above the iframe */
+            z-index: 9999;
         }
 
         .navbar a {
             color: #f2f2f2;
             text-align: center;
             padding: 14px 16px;
-            padding: 0;
-        }
-
             text-decoration: none;
             font-size: 17px;
             transition: background-color 0.3s ease;
@@ -42,6 +41,7 @@
         .navbar a.active[href="aboutme.html"] {
             background-color: initial;
         }
+        
         .iframe-container {
             position: absolute;
             top: 50px; /* Adjust top position as desired */
