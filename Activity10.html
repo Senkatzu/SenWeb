@@ -20,9 +20,22 @@
     }
 
     th, td {
-      border: 1px solid black;
+      border: 1px solid #ccc;
       padding: 8px;
       text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .success-message {
+      color: green;
+      margin-top: 10px;
+    }
+
+    #hiddenIframe {
+      display: none;
     }
   </style>
   <title>Friend Registry</title>
@@ -30,7 +43,7 @@
 <body>
   <div class="container">
     <h1>Friend Registry</h1>
-    <form action="https://script.google.com/macros/s/AKfycbzlVZMdP_wTzQsEvqpgUR_brkFsUyWKmeKB9sALzcHL5xpmBimf9L5h_qxdc9hu1ph4/exec" method="POST" target="submitFrame">
+    <form id="friendForm">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required><br>
       <label for="age">Age:</label>
@@ -46,10 +59,101 @@
       <input type="email" id="email" name="email" required><br>
       <label for="phone">Phone Number:</label>
       <input type="tel" id="phone" name="phone" required><br>
-      <input type="submit" value="Submit Information">
+      <input type="button" value="Submit Information" id="submitButton">
     </form>
 
-    <iframe name="submitFrame" style="display: none;"></iframe>
+    <div id="successMessage" class="success-message"></div>
+
+    <h2>Registered Friends</h2>
+    <table id="friendTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody id="friendTableBody">
+        <!-- Friend information will be dynamically added here -->
+      </tbody>
+    </table>
+
+    <iframe id="hiddenIframe" name="hiddenIframe"></iframe>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var friendForm = document.getElementById("friendForm");
+      var friendTableBody = document.getElementById("friendTableBody");
+      var successMessage = document.getElementById("successMessage");
+      var hiddenIframe = document.getElementById("hiddenIframe");
+      var submitButton = document.getElementById("submitButton");
+
+      submitButton.addEventListener("click", function() {
+        // Get form values
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+        var gender = document.getElementById("gender").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+
+        // Create a new table row
+        var row = document.createElement("tr");
+
+        // Create table cells for each data field
+        var nameCell = document.createElement("td");
+        var ageCell = document.createElement("td");
+        var genderCell = document.createElement("td");
+        var emailCell = document.createElement("td");
+        var phoneCell = document.createElement("td");
+
+        // Assign values to the table cells
+        nameCell.textContent = name;
+        ageCell.textContent = age;
+        genderCell.textContent = gender;
+        emailCell.textContent = email;
+        phoneCell.textContent = phone;
+
+        // Append the cells to the row
+        row.appendChild(nameCell);
+        row.appendChild(ageCell);
+        row.appendChild(genderCell);
+        row.appendChild(emailCell);
+        row.appendChild(phoneCell);
+
+        // Append the row to the table body
+        friendTableBody.appendChild(row);
+
+        // Reset the form
+        friendForm.reset();
+
+        // Display success message
+        successMessage.textContent = "Friend Successfully Added";
+
+        // Prepare the form data to be sent
+        var formData = new FormData();
+        formData.append("name", name);
+        formData.append("age", age);
+        formData.append("gender", gender);
+        formData.append("email", email);
+        formData.append("phone", phone);
+
+        // Send the form data to the AppScript URL using Fetch API
+        fetch("https://script.google.com/macros/s/AKfycbzlVZMdP_wTzQsEvqpgUR_brkFsUyWKmeKB9sALzcHL5xpmBimf9L5h_qxdc9hu1ph4/exec", {
+          method: "POST",
+          body: formData
+        })
+          .then(function(response) {
+            // Handle the response here if needed
+          })
+          .catch(function(error) {
+            console.error("Error:", error);
+          });
+      });
+    });
+  </script>
 </body>
 </html>
+
