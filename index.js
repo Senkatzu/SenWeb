@@ -1,39 +1,35 @@
-// Function to generate the text file content
-function generateTextFileContent() {
-  var tableRows = document.querySelectorAll("#friendTable tbody tr");
-  var content = "";
-
-  // Add table header row
-  var headerCells = document.querySelectorAll("#friendTable thead th");
-  for (var i = 0; i < headerCells.length; i++) {
-    content += headerCells[i].textContent + "\t"; // Separate values with tabs
-  }
-  content += "\n"; // Add new line after the header row
-
-  // Loop through table rows and extract values
-  for (var i = 0; i < tableRows.length; i++) {
-    var cells = tableRows[i].querySelectorAll("td");
-    for (var j = 0; j < cells.length; j++) {
-      content += cells[j].textContent + "\t"; // Separate values with tabs
+// Function to send the form data to a Google Script URL
+function submitFormToGoogleScript(url) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      // Form submission successful
+      console.log("Form submitted successfully!");
+    } else {
+      // Form submission failed
+      console.error("Error submitting form.");
     }
-    content += "\n"; // Add new line after each row
-  }
+  };
 
-  return content;
-}
+  // Get form values
+  var name = document.getElementById("name").value;
+  var age = document.getElementById("age").value;
+  var gender = document.getElementById("gender").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
 
-// Function to prompt the user to save the text file
-function saveTextFile(content, filename) {
-  var element = document.createElement("a");
-  element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(content));
-  element.setAttribute("download", filename);
+  // Construct the form data
+  var formData = new FormData();
+  formData.append("name", name);
+  formData.append("age", age);
+  formData.append("gender", gender);
+  formData.append("email", email);
+  formData.append("phone", phone);
 
-  element.style.display = "none";
-  document.body.appendChild(element);
-
-  element.click();
-
-  document.body.removeChild(element);
+  // Send the form data
+  xhr.send(formData);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -63,11 +59,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("gender").value = "";
     document.getElementById("email").value = "";
     document.getElementById("phone").value = "";
-  });
 
-  document.getElementById("saveButton").addEventListener("click", function() {
-    var content = generateTextFileContent();
-    var filename = "friend_registry.txt";
-    saveTextFile(content, filename);
+    // Submit form data to Google Script URL
+    submitFormToGoogleScript("https://script.google.com/macros/s/AKfycbyiPU7BDEIzOOQpTKJGPn0TFs-1X70hrtMvFpRmSSFUYwUtFJeD5AXemTnytusg3bCZ/exec");
   });
-});
+}); 
